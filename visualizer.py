@@ -49,14 +49,17 @@ class Visualizer:
         plt.show()
 
     @staticmethod
-    def plot_heatmap(data, title):
+    def plot_heatmap(data, title, x_label, y_label):
         """
         Plot a heatmap.
 
         :param data: 2D data array for heatmap.
         :param title: Title of the plot.
+        :param x_label: Label of X-axis.
+        :param y_label: Label of Y-axis.
         """
-        plt.figure(figsize=(10, 6))
-        sns.heatmap(data)
+        sns.heatmap(data, annot=True, cmap='coolwarm')
         plt.title(title)
+        plt.xlabel(x_label)
+        plt.ylabel(y_label)
         plt.show()
