@@ -1,61 +1,46 @@
-import matplotlib.pyplot as plt
-import requests
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
-# GitHub username and repository name
-github_username = "mert-aydin"
-repository_name = "SWE-573"
-
-# Replace with your GitHub Personal Access Token (PAT)
-github_token = os.getenv("GITHUB_TOKEN")
-
-# GitHub API base URL
-api_base_url = "https://api.github.com"
-
-# Set up authentication headers
-headers = {
-    "Authorization": f"token {github_token}"
-}
+from bert_processor import BERTProcessor  # The BERT integration module
+from data_collector import DataCollector  # Assuming this is your data collection module
+from data_preprocessor import DataPreprocessor  # Your data preprocessing module
+from visualizer import Visualizer  # The visualization module
 
 
-# Function to fetch repository data
-def fetch_repository_data():
-    # Fetch information about commits
-    commits_url = f"{api_base_url}/repos/{github_username}/{repository_name}/commits"
-    commits_response = requests.get(commits_url, headers=headers)
-    commits_count = len(commits_response.json())
+def main():
+    # Set up argument parser
+    # parser = argparse.ArgumentParser(description="Software Repository Analyzer")
+    # parser.add_argument('repo_url', help="URL of the GitHub repository")
+    # args = parser.parse_args()
 
-    # Fetch information about issues
-    issues_url = f"{api_base_url}/repos/{github_username}/{repository_name}/issues"
-    issues_response = requests.get(issues_url, headers=headers)
-    issues_count = len(issues_response.json())
+    # Initialize modules
+    # data_collector = DataCollector(os.getenv("GITHUB_TOKEN"), args.repo_url)
+    data_collector = DataCollector(os.getenv("GITHUB_TOKEN"), "mert-aydin/SWE-573")
+    data_preprocessor = DataPreprocessor()
+    bert_processor = BERTProcessor()
+    visualizer = Visualizer()
 
-    # Fetch information about requirements (pull requests)
-    pr_url = f"{api_base_url}/repos/{github_username}/{repository_name}/pulls"
-    pr_response = requests.get(pr_url, headers=headers)
-    pr_count = len(pr_response.json())
+    # Example workflow
+    # 1. Collect data
+    commits = data_collector.get_commits()
+    issues = data_collector.get_issues()
 
-    return commits_count, issues_count, pr_count
+    # 2. Preprocess data
+    preprocessed_commits = data_preprocessor.preprocess_commits(commits)
+    preprocessed_issues = data_preprocessor.preprocess_issues(issues)
+
+    # 3. Perform BERT analysis (as an example)
+    preprocessed_commits['commits_bert_results'] = preprocessed_commits['message'].apply(bert_processor.process_message)
+    preprocessed_issues['issue_titles_bert_results'] = preprocessed_issues['title'].apply(
+        bert_processor.process_message)
+    preprocessed_issues['issue_bodies_bert_results'] = preprocessed_issues['body'].apply(bert_processor.process_message)
+
+    # 4. Generate visualizations
+    # This is an example, replace 'data', 'x', 'y' with actual data fields
+    visualizer.plot_line_chart(data=preprocessed_commits, x=preprocessed_commits['commit_date'],
+                               y=preprocessed_commits.size, title='Commit Activity Over Time')
+
+    print("Analysis completed.")
 
 
-# Function to create a bar chart
-def create_bar_chart(data, labels, title, xlabel, ylabel, color):
-    plt.figure(figsize=(10, 6))
-    plt.bar(labels, data, color=color)
-    plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.tight_layout()
-    plt.show()
-
-
-# Fetch repository data
-commits, issues, prs = fetch_repository_data()
-
-# Create bar charts for each type of data
-create_bar_chart([commits], ["Commits"], "Commits in Repository", "Type", "Count", "skyblue")
-create_bar_chart([issues], ["Issues"], "Issues in Repository", "Type", "Count", "lightcoral")
-create_bar_chart([prs], ["Pull Requests"], "Pull Requests in Repository", "Type", "Count", "lightgreen")
+if __name__ == "__main__":
+    main()
