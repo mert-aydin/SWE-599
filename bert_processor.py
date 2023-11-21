@@ -1,6 +1,8 @@
 import torch
-from transformers import AutoTokenizer, AutoModel
+from bert_score import score
 from sklearn.metrics.pairwise import cosine_similarity
+from transformers import AutoTokenizer, AutoModel
+from evaluate import load
 
 
 class BERTProcessor:
@@ -20,42 +22,18 @@ class BERTProcessor:
         embeddings = model_output.last_hidden_state.mean(dim=1)
         return embeddings
 
-    def calculate_similarity(self, embedding1, embedding2):
+    @staticmethod
+    def calculate_similarity(embedding1, embedding2):
         return cosine_similarity(embedding1, embedding2)
 
-    def preprocess(self, text):
-        """
-        Preprocess text for BERT analysis.
-
-        :param text: The text to be preprocessed.
-        :return: A dictionary containing input ids and attention masks.
-        """
-        encoded_input = self.tokenizer(text, padding=True, truncation=True, return_tensors="pt")
-        return encoded_input
-
-    def analyze_text(self, text):
-        """
-        Analyze the given text using the BERT model.
-
-        :param text: The text to be analyzed.
-        :return: The model's output.
-        """
-        # Preprocess the text
-        inputs = self.preprocess(text)
-
-        # Move to the same device as the model
-        inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
-
-        # Analyze the text
-        with torch.no_grad():
-            outputs = self.model(**inputs)
-
-        # Process the model output as needed (e.g., extracting the logits)
-        logits = outputs.logits
-        return logits
-
-    def process_message(self, message):
-        if message is None:
-            return None
-
-        return self.analyze_text(message)
+    @staticmethod
+    def compute_pairwise_bertscore(predictions, references):
+        results = []
+        for pred in predictions:
+            # Compare each prediction to all references
+            P, R, F1 = score([pred] * len(references), references, lang="en")
+            results.append({
+                'prediction': pred,
+                'scores': F1.tolist()  # F1 scores for this prediction against all references
+            })
+        return results

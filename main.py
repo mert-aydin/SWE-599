@@ -1,11 +1,10 @@
 import os
+
 import pandas as pd
-from bert_processor import BERTProcessor  # The BERT integration module
-from data_collector import DataCollector  # Assuming this is your data collection module
-from data_preprocessor import DataPreprocessor  # Your data preprocessing module
-from visualizer import Visualizer  # The visualization module
-import seaborn as sns
-import matplotlib.pyplot as plt
+
+from bert_processor import BERTProcessor
+from data_collector import DataCollector
+from data_preprocessor import preprocess_commits, preprocess_issues
 
 
 def main():
@@ -17,42 +16,56 @@ def main():
     # Initialize modules
     # data_collector = DataCollector(os.getenv("GITHUB_TOKEN"), args.repo_url)
     data_collector = DataCollector(os.getenv("GITHUB_TOKEN"), "mert-aydin/SWE-573")
-    data_preprocessor = DataPreprocessor()
-    bert_processor = BERTProcessor()
-    visualizer = Visualizer()
+    bert_processor = BERTProcessor(model_name='microsoft/codebert-base')
 
-    # Example workflow
     # 1. Collect data
     commits = data_collector.get_commits()
     issues = data_collector.get_issues()
 
     # 2. Preprocess data
-    preprocessed_commits = data_preprocessor.preprocess_commits(commits)
-    preprocessed_issues = data_preprocessor.preprocess_issues(issues)
+    preprocessed_commits = preprocess_commits(commits)
+    preprocessed_issues = preprocess_issues(issues)
 
     # 3. Perform BERT analysis
     commit_embeddings = bert_processor.encode_texts(preprocessed_commits['message'].tolist())
-    issue_embeddings = bert_processor.encode_texts(
-        (preprocessed_issues['title'] + " " + preprocessed_issues['body']).tolist())
-    similarity_matrix = bert_processor.calculate_similarity(commit_embeddings[0].reshape(1, -1), issue_embeddings)
+    issue_embeddings = bert_processor.encode_texts(preprocessed_issues['title_body'].tolist())
+    similarity_matrix = bert_processor.calculate_similarity(commit_embeddings, issue_embeddings)
 
     # 4. Generate visualizations
-    visualizer.plot_heatmap(similarity_matrix, "Commit-Issue Similarity", "Issues", "Commits")
+    # plot_heatmap(similarity_matrix, "Commit-Issue Similarity", "Issues", "Commits")
 
-    # Assuming 'commit_texts' and 'issue_texts' contain the corresponding texts
+    # BertScore
+    import numpy as np
+
+    # Initialize matrix to store scores
+    bert_scores = bert_processor.compute_pairwise_bertscore(preprocessed_commits['message'],
+                                                            preprocessed_issues['title_body'])
+
+    print(bert_scores)
+    return
+
     commit_to_issue_matches = []
     for commit_index, scores in enumerate(similarity_matrix):
         highest_similarity_index = scores.argmax()
         highest_similarity_score = scores[highest_similarity_index]
         commit_text = preprocessed_commits['message'][commit_index]
-        issue_text = (preprocessed_issues['title'] + " " + preprocessed_issues['body'])[highest_similarity_index]
+        issue_text = preprocessed_issues['title'][highest_similarity_index]
         commit_to_issue_matches.append({
             'Commit': commit_text,
             'Matched Issue': issue_text,
             'Similarity Score': highest_similarity_score
         })
 
+    pd.set_option('display.max_colwidth', None)
     matches_df = pd.DataFrame(commit_to_issue_matches)
+
+    # Sort the DataFrame by the 'Similarity Score' column in descending order
+    matches_df = matches_df.sort_values(by='Similarity Score', ascending=False)
+
+    # Reset the index if you want to reindex the DataFrame
+    matches_df = matches_df.reset_index(drop=True)
+
+    matches_df.to_csv('matches.csv', index=False)
     print(matches_df)
 
     return
