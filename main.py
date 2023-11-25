@@ -1,3 +1,4 @@
+import argparse
 import os
 
 import pandas as pd
@@ -5,18 +6,21 @@ import pandas as pd
 from bert_processor import BERTProcessor
 from data_collector import DataCollector
 from data_preprocessor import preprocess_commits, preprocess_issues
+from visualizer import plot_heatmap
 
 
 def main():
     # Set up argument parser
-    # parser = argparse.ArgumentParser(description="Software Repository Analyzer")
-    # parser.add_argument('repo_url', help="URL of the GitHub repository")
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="Software Repository Analyzer")
+    parser.add_argument('repo', help="Name of the GitHub repository")
+    parser.add_argument('--token', help="Github API Token")
+    args = parser.parse_args()
 
     # Initialize modules
-    # data_collector = DataCollector(os.getenv("GITHUB_TOKEN"), args.repo_url)
-    data_collector = DataCollector(os.getenv("GITHUB_TOKEN"), "mert-aydin/SWE-573")
-    bert_processor = BERTProcessor(model_name='microsoft/codebert-base')
+    token = os.getenv("GITHUB_TOKEN") if os.getenv("GITHUB_TOKEN") is not None else args.token
+    data_collector = DataCollector(token, args.repo)
+    # bert_processor = BERTProcessor(model_name='microsoft/codebert-base')
+    bert_processor = BERTProcessor()
 
     # 1. Collect data
     commits = data_collector.get_commits()
@@ -32,8 +36,9 @@ def main():
     similarity_matrix = bert_processor.calculate_similarity(commit_embeddings, issue_embeddings)
 
     # 4. Generate visualizations
-    # plot_heatmap(similarity_matrix, "Commit-Issue Similarity", "Issues", "Commits")
+    plot_heatmap(similarity_matrix, "Commit-Issue Similarity", "Issues", "Commits")
 
+    """
     # BertScore
     import numpy as np
 
@@ -42,7 +47,7 @@ def main():
                                                             preprocessed_issues['title_body'])
 
     print(bert_scores)
-    return
+    """
 
     commit_to_issue_matches = []
     for commit_index, scores in enumerate(similarity_matrix):

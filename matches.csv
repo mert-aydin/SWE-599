@@ -1,58 +1,58 @@
 Commit,Matched Issue,Similarity Score
-"Feed now also lists posts by users that are not following, after the posts from followed users #8",Like button bug,0.9780905
-"Feed now also lists posts by users that are not following, after the posts from followed users #4",Like button bug,0.97794247
-Stories in profile page ordered as ascending order by timestamps #17,Stories in profile page ordered as ascending order by timestamps,0.9758931
-"backend for search functionality implemented (username, title, content, location) #9",Creating posts,0.9732683
-"frontend for search functionality implemented (username, title, content, location) #9",Creating posts,0.9713782
-"frontend for search functionality implemented (username, title, content, location) #9",Creating posts,0.9713782
-Implement following and unfollowing users #7,Implement feed,0.97109383
-Can't add stories without images fixed #15,Can't add stories without images,0.96368027
-Stories without image fixed #16,Liking posts,0.9616211
-Posts with no tags crash feed page fixed #12,Show locations on a map,0.96158195
-Forms not working fixed #11,Unit tests,0.96059203
-Cannot register fixed #20,Liking posts,0.9604969
-Styling issue on profile page fixed #14,Styling issue on profile page,0.96032834
-Merge remote-tracking branch 'origin/main',Show locations on a map,0.9597951
-option to choose different date types implemented #10,Show locations on a map,0.9587818
-option to choose different date types implemented #10,Show locations on a map,0.9587818
-Show locations on a map #24,Liking posts,0.9578222
-App Engine cannot connect cloud sql fixed #22,Forms not working,0.9561777
-initial commit for google cloud deployment #21,Show locations on a map,0.9559306
-requirements.txt added #21,Liking posts,0.95531476
-fix tags are not formatted properly #10,Stories without image,0.9551301
-add time interval options for post creation #10,Show locations on a map,0.95169574
-Hide delete post button #28,Liking posts,0.9496354
-posts now show start and end date of it #4,Stories without image,0.9490274
-favicon.ico added #21,Show locations on a map,0.9488852
-favicon.ico added #21,Show locations on a map,0.9488852
-remove unnecessary configs #25,Stories without image,0.94715524
-Delete post #27,Liking posts,0.9452007
-initial commit for post creation #10,Liking posts,0.9450201
-backend and db are dockerized #29,App Engine cannot connect cloud sql,0.9447466
-backend and db are dockerized #29,App Engine cannot connect cloud sql,0.9447466
-backend and db are dockerized #29,App Engine cannot connect cloud sql,0.9447466
-database table column name change #25,Liking posts,0.9441677
-database table column name change #25,Liking posts,0.9441677
-Maps overlap toolbar fixed #26,Stories without image,0.94415283
-Can't like posts #8,Liking posts,0.9434172
-Implement profile #6,Unit tests,0.9405837
-Implement profile #6,Unit tests,0.9405837
-Implement profile #6,Unit tests,0.9405837
-#2 email/password authentication implemented.,Show locations on a map,0.9402529
-"""Body"" changed to ""Story"" #10",Show locations on a map,0.93940675
-Implement feed #4,Dockerizing,0.93711275
-images moved under the story content #10,Stories without image,0.9284508
-#3 tables created.,Liking posts,0.9223523
-tags are shown within posts #4,Stories without image,0.9180489
-backend deployed #21,Liking posts,0.9130199
-author name changed,Liking posts,0.9085104
-Emails shall not be visible #18,Show locations on a map,0.8967095
-Update README.md,Dockerizing,0.88044286
-Like button bug fixed #19,Dockerizing,0.8736712
-Unit tests added #23,Dockerizing,0.86104727
-#5 Liking posts,Dockerizing,0.8558769
-Creating posts #10,Dockerizing,0.8454529
-Image handling #13,Dockerizing,0.8424168
-project reported added,Dockerizing,0.8322308
-project reported added,Dockerizing,0.8322308
-Initial commit,Dockerizing,0.8154191
+App Engine cannot connect cloud sql fixed #22,App Engine cannot connect cloud sql,0.9237246
+Can't like posts #8,Can't like posts,0.8217409
+#2 email/password authentication implemented.,Implement authentication,0.7976359
+Stories without image fixed #16,Stories without image,0.7724792
+Merge remote-tracking branch 'origin/main',Delete post,0.7677625
+Emails shall not be visible #18,Can't like posts,0.7425778
+initial commit for google cloud deployment #21,Deploy the app,0.73028886
+Stories in profile page ordered as ascending order by timestamps #17,Stories in profile page ordered as ascending order by timestamps,0.72974026
+Forms not working fixed #11,Stories without image,0.7243472
+Cannot register fixed #20,Cannot register,0.7236292
+Can't add stories without images fixed #15,Can't add stories without images,0.7229816
+#5 Liking posts,Liking posts,0.7204406
+Hide delete post button #28,Hide delete post button,0.7134283
+project reported added,Delete post,0.70329976
+project reported added,Delete post,0.70329976
+Posts with no tags crash feed page fixed #12,Stories without image,0.7010568
+Update README.md,Add a more detailed readme file,0.6996095
+fix tags are not formatted properly #10,Cannot register,0.6949655
+Maps overlap toolbar fixed #26,Maps overlap toolbar,0.6907213
+Delete post #27,Delete post,0.687709
+Implement following and unfollowing users #7,Delete post,0.6714238
+Initial commit,Delete post,0.6439277
+"Feed now also lists posts by users that are not following, after the posts from followed users #4",Implement following and unfollowing users,0.6403577
+tags are shown within posts #4,Dockerizing,0.63453746
+"backend for search functionality implemented (username, title, content, location) #9",Dockerizing,0.63428724
+"Feed now also lists posts by users that are not following, after the posts from followed users #8",Like button bug,0.6323228
+author name changed,Styling issue on profile page,0.6317151
+Like button bug fixed #19,Delete post,0.6218029
+Implement feed #4,Delete post,0.6208397
+"frontend for search functionality implemented (username, title, content, location) #9",Dockerizing,0.61394066
+"frontend for search functionality implemented (username, title, content, location) #9",Dockerizing,0.61394066
+remove unnecessary configs #25,Forms not working,0.6104474
+backend deployed #21,Delete post,0.5883738
+Styling issue on profile page fixed #14,Implement profile,0.588318
+Implement profile #6,Dockerizing,0.5856669
+Implement profile #6,Dockerizing,0.5856669
+Implement profile #6,Dockerizing,0.5856669
+Unit tests added #23,Unit tests,0.58552146
+database table column name change #25,Dockerizing,0.5809717
+database table column name change #25,Dockerizing,0.5809717
+favicon.ico added #21,Delete post,0.579877
+favicon.ico added #21,Delete post,0.579877
+posts now show start and end date of it #4,Stories in profile page ordered as ascending order by timestamps,0.57213104
+add time interval options for post creation #10,Stories in profile page ordered as ascending order by timestamps,0.5713687
+backend and db are dockerized #29,Delete post,0.5670208
+backend and db are dockerized #29,Delete post,0.5670208
+backend and db are dockerized #29,Delete post,0.5670208
+requirements.txt added #21,Delete post,0.5657982
+images moved under the story content #10,Stories in profile page ordered as ascending order by timestamps,0.56177086
+#3 tables created.,Create required tables,0.55936176
+option to choose different date types implemented #10,Stories in profile page ordered as ascending order by timestamps,0.5376289
+option to choose different date types implemented #10,Stories in profile page ordered as ascending order by timestamps,0.5376289
+Creating posts #10,Delete post,0.5303239
+Show locations on a map #24,Dockerizing,0.5289238
+"""Body"" changed to ""Story"" #10",Stories in profile page ordered as ascending order by timestamps,0.52829933
+Image handling #13,Delete post,0.52774566
+initial commit for post creation #10,Implement feed,0.5114354
