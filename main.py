@@ -2,7 +2,7 @@ import argparse
 import os
 
 import pandas as pd
-
+import matplotlib.pyplot as plt
 from bert_processor import BERTProcessor
 from data_collector import DataCollector
 from data_preprocessor import preprocess_commits, preprocess_issues
@@ -22,7 +22,6 @@ def main():
     # Initialize modules
     data_collector = DataCollector(args.token, args.repo)
     bert_processor = BERTProcessor()
-    # bert_processor = BERTProcessor(model_name='microsoft/codebert-base')
 
     # 1. Collect data
     commits = data_collector.get_commits()
@@ -67,7 +66,28 @@ def main():
     matches_df = matches_df.reset_index(drop=True)
 
     matches_df.to_csv('matches.csv', index=False)
-    print(matches_df)
+
+    # A histogram showcasing the distribution of time taken to close issues.
+
+    # Convert to DataFrame
+    df = pd.DataFrame(preprocessed_issues)
+
+    # Convert the created_at and closed_at columns to datetime
+    df['created_at'] = pd.to_datetime(df['created_at'])
+    df['closed_at'] = pd.to_datetime(df['closed_at'])
+
+    # Calculate the time taken to close each issue in days
+    df['time_to_close'] = (df['closed_at'] - df['created_at']).dt.days
+
+    # Create a histogram of the time taken to close issues
+    plt.figure(figsize=(10, 6))
+    plt.hist(df['time_to_close'], bins='auto', color='skyblue', alpha=0.7)
+    plt.title('Histogram of Time Taken to Close Issues')
+    plt.xlabel('Days to Close')
+    plt.ylabel('Number of Issues')
+    plt.grid(True)
+    plt.show()
+
     print("Analysis completed.")
 
 
