@@ -1,8 +1,6 @@
 import torch
-from bert_score import score
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoTokenizer, AutoModel
-from evaluate import load
 
 
 class BERTProcessor:
@@ -25,15 +23,3 @@ class BERTProcessor:
     @staticmethod
     def calculate_similarity(embedding1, embedding2):
         return cosine_similarity(embedding1, embedding2)
-
-    @staticmethod
-    def compute_pairwise_bertscore(predictions, references):
-        results = []
-        for pred in predictions:
-            # Compare each prediction to all references
-            P, R, F1 = score([pred] * len(references), references, lang="en")
-            results.append({
-                'prediction': pred,
-                'scores': F1.tolist()  # F1 scores for this prediction against all references
-            })
-        return results
