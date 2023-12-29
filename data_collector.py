@@ -19,8 +19,8 @@ class DataCollector:
         :return: A list of commit data.
         """
         commits = self.repo.get_commits()
-        return [{'sha': commit.sha, 'message': commit.commit.message, 'commit_date': commit.commit.author.date} for
-                commit in commits]
+        return [{'message': commit.commit.message, 'commit_date': commit.commit.author.date, 'url': commit.html_url}
+                for commit in commits if not commit.commit.message.startswith('Merge')]
 
     def get_issues(self, state='all'):
         """
@@ -31,4 +31,5 @@ class DataCollector:
         """
         issues = self.repo.get_issues(state=state)
         return [{'id': issue.id, 'title': issue.title, 'body': issue.body, 'created_at': issue.created_at,
-                 'closed_at': issue.closed_at} for issue in issues]
+                 'closed_at': issue.closed_at, 'url': issue.html_url} for issue in issues if
+                issue.pull_request is None]
