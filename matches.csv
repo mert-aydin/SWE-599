@@ -1,58 +1,111 @@
-Commit,Matched Issue,Similarity Score
-App Engine cannot connect cloud sql fixed #22,App Engine cannot connect cloud sql,0.9237246
-Can't like posts #8,Can't like posts,0.8217409
-#2 email/password authentication implemented.,Implement authentication,0.7976359
-Stories without image fixed #16,Stories without image,0.7724792
-Merge remote-tracking branch 'origin/main',Delete post,0.7677625
-Emails shall not be visible #18,Can't like posts,0.7425778
-initial commit for google cloud deployment #21,Deploy the app,0.73028886
-Stories in profile page ordered as ascending order by timestamps #17,Stories in profile page ordered as ascending order by timestamps,0.72974026
-Forms not working fixed #11,Stories without image,0.7243472
-Cannot register fixed #20,Cannot register,0.7236292
-Can't add stories without images fixed #15,Can't add stories without images,0.7229816
-#5 Liking posts,Liking posts,0.7204406
-Hide delete post button #28,Hide delete post button,0.7134283
-project reported added,Delete post,0.70329976
-project reported added,Delete post,0.70329976
-Posts with no tags crash feed page fixed #12,Stories without image,0.7010568
-Update README.md,Add a more detailed readme file,0.6996095
-fix tags are not formatted properly #10,Cannot register,0.6949655
-Maps overlap toolbar fixed #26,Maps overlap toolbar,0.6907213
-Delete post #27,Delete post,0.687709
-Implement following and unfollowing users #7,Delete post,0.6714238
-Initial commit,Delete post,0.6439277
-"Feed now also lists posts by users that are not following, after the posts from followed users #4",Implement following and unfollowing users,0.6403577
-tags are shown within posts #4,Dockerizing,0.63453746
-"backend for search functionality implemented (username, title, content, location) #9",Dockerizing,0.63428724
-"Feed now also lists posts by users that are not following, after the posts from followed users #8",Like button bug,0.6323228
-author name changed,Styling issue on profile page,0.6317151
-Like button bug fixed #19,Delete post,0.6218029
-Implement feed #4,Delete post,0.6208397
-"frontend for search functionality implemented (username, title, content, location) #9",Dockerizing,0.61394066
-"frontend for search functionality implemented (username, title, content, location) #9",Dockerizing,0.61394066
-remove unnecessary configs #25,Forms not working,0.6104474
-backend deployed #21,Delete post,0.5883738
-Styling issue on profile page fixed #14,Implement profile,0.588318
-Implement profile #6,Dockerizing,0.5856669
-Implement profile #6,Dockerizing,0.5856669
-Implement profile #6,Dockerizing,0.5856669
-Unit tests added #23,Unit tests,0.58552146
-database table column name change #25,Dockerizing,0.5809717
-database table column name change #25,Dockerizing,0.5809717
-favicon.ico added #21,Delete post,0.579877
-favicon.ico added #21,Delete post,0.579877
-posts now show start and end date of it #4,Stories in profile page ordered as ascending order by timestamps,0.57213104
-add time interval options for post creation #10,Stories in profile page ordered as ascending order by timestamps,0.5713687
-backend and db are dockerized #29,Delete post,0.5670208
-backend and db are dockerized #29,Delete post,0.5670208
-backend and db are dockerized #29,Delete post,0.5670208
-requirements.txt added #21,Delete post,0.5657982
-images moved under the story content #10,Stories in profile page ordered as ascending order by timestamps,0.56177086
-#3 tables created.,Create required tables,0.55936176
-option to choose different date types implemented #10,Stories in profile page ordered as ascending order by timestamps,0.5376289
-option to choose different date types implemented #10,Stories in profile page ordered as ascending order by timestamps,0.5376289
-Creating posts #10,Delete post,0.5303239
-Show locations on a map #24,Dockerizing,0.5289238
-"""Body"" changed to ""Story"" #10",Stories in profile page ordered as ascending order by timestamps,0.52829933
-Image handling #13,Delete post,0.52774566
-initial commit for post creation #10,Implement feed,0.5114354
+Commit,Matched Issue,Issue Link,Similarity Score
+[Pipeline] Remove names and line spaces,Delete mock_up.json,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/62,0.86954564
+[Feed] fetch stories from backend initial commit,Fetch stories from backend,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/44,0.8544047
+[HomePage] Keep home page alive after page is change from bottom nav bar #32,Keep home page alive after page is changed from bottom nav bar,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/32,0.84797037
+[StoryCreate] Add create story design improvements,Improve register appbar design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/39,0.8385456
+"[Login] Add repository pattern and customHeaders to network calls
+
+Related: #4, #8",Add repository pattern for network calls for login page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/8,0.8356302
+[Network] Change base url #88,Update backend service url,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/113,0.8307219
+[StoryDetail] add missing implementation,Add icon to story detail page AppBar,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/65,0.8307101
+[StoryDetail] story detail page initial commit,Story detail route unit test,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/121,0.82908225
+[FetchStories] Move fetch stories logic to bloc and wrap texts with expanded widget for overflowing texts #44,Fetch stories from backend,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/44,0.82482564
+[Register] validation improvements for registration,Improve register appbar design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/39,0.8245767
+[Login] Remove empty line,Delete mock_up.json,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/62,0.81923664
+[StoryDetail] likes are updated in backend.,Feed page endpoint change,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/74,0.81828916
+[Lint] Fix lint warning for test files,Profile route unit tests,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/119,0.81726444
+Update build_and_upload_apk.yml,Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.8117506
+Add pre-commit badge into README,Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.8075523
+Add pre-commit config file,Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.806729
+Change app launcher logo (Android) #69,Change app launcher logo (Android),https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/69,0.80432653
+[Pipeline] Add test pipeline.yml file,Profile route unit tests,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/119,0.8016635
+[Pipeline] Add test pipeline.yml file,Profile route unit tests,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/119,0.8016635
+[Feed] add contextual content to mockup data,Define base route branches in main file,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/45,0.7987372
+[StoryDetail] comments added,Implement Edit Story Page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/98,0.79542285
+[Pagination] Remove unneccesary request models and send parameters in api endpoint for story get #57,Add icon to story detail page AppBar,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/65,0.7865348
+[StoryDetail] build fix,Implement Edit Story Page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/98,0.7864895
+"Extend gitignore rules
+
+https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,android,androidstudio,flutter,macos",Change app launcher logo (Android),https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/69,0.7809334
+Add Makefile for mobile repo #68,Create Mobile Mockups,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/10,0.77965224
+[StoryDetail] Remove image compress and change map url #71,Profile page appbar bug,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/109,0.77960974
+[CreateStory] Remove test end point #56,Delete mock_up.json,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/62,0.77897197
+[Feed] feed page initial commit,Implement Edit Story Page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/98,0.7761792
+[Register] Initial commit for registration,Define base route branches in main file,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/45,0.7736479
+"[pre-commit.ci] auto fixes from pre-commit.com hooks
+
+for more information, see https://pre-commit.ci",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7721051
+"[pre-commit.ci] auto fixes from pre-commit.com hooks
+
+for more information, see https://pre-commit.ci",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7721051
+"[pre-commit.ci] auto fixes from pre-commit.com hooks
+
+for more information, see https://pre-commit.ci",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7721051
+"[pre-commit.ci] auto fixes from pre-commit.com hooks
+
+for more information, see https://pre-commit.ci",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7721051
+"[pre-commit.ci] auto fixes from pre-commit.com hooks
+
+for more information, see https://pre-commit.ci",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7721051
+[Pipeline] Change to project root,Feed page endpoint change,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/74,0.77105176
+"[Network] Add network manager class
+
+Related: #4",Create network manager class,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/4,0.7663212
+[CreateStory] Show error popup when story creation is failed or in offline mode #56,Story Detail page text encoding issue,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/61,0.76043963
+[Register] Remove unused import #23,Delete mock_up.json,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/62,0.7587245
+[StoryDetail] Extract widgets to separate classes #64,Seperate widgets to their own files,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/64,0.75583535
+[StoryDetail] add back icon to AppBar #65,Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.75563157
+"[Offline] Add offline mode handler in network manager
+
+Related: #16",Handle offline state in network calls,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/16,0.7533543
+[StoryDetail] Update likes in backend #63,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7523254
+[CreateStory] Add quill text editor and tags field #56,Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.7520715
+"[Login] Add initial bloc arcitecture for login
+
+Related: #3",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7494744
+[StoryDetail] Remove borders from circle area #71,Delete mock_up.json,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/62,0.7491452
+[Map] Remove unused package #60,Delete mock_up.json,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/62,0.74801344
+"[Pipeline] Remove flutter analyze from the workflow steps
+
+Related: #12",Separate CI and CD mobile pipelines,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/35,0.7426241
+[Linter] Add lint rules and make fixes related to linting #5,Feed page endpoint change,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/74,0.73702055
+#61 location name faulty encoding fixed,Story Detail page text encoding issue,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/61,0.7366287
+[Feed] handle logout,Implement Edit Story Page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/98,0.73308456
+[StoryDetail] story model passed from feed page,Feed page endpoint change,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/74,0.73162794
+"[Login] Add login page design
+
+Related: #14",Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.73141754
+[Pipeline] Add java distribution info for build action #12,Add golden tests for login,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/7,0.7306073
+[Feed] Fix Tag model class duplicated,Network manager code clean-up,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/20,0.7281815
+[Feed] Refactor fetch stories related codes #21,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7253777
+"[AlertDialog] Add alert dialog class
+
+Related: #17",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.72258705
+[CreateStory] Add create story request and response #56,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.72183347
+[StoryDetail] fix typo #66,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7205472
+Comment out login pswd validation test #83,Create network manager class,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/4,0.7203443
+[LoginBlocTest] Add login bloc tests #6,Remove validation of username from login/register page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/105,0.71915877
+"[StoryDetail] location, date tags and likes count added",Add login page design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/14,0.71745855
+[Pipeline] Use temurin 17 distribution for build action #12,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7169029
+[CreateStory] Update flutter version in pipeline #56,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7158786
+Comment out login pswd validation #83,Create network manager class,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/4,0.7155407
+"[pre-commit.ci] pre-commit autoupdate
+
+updates:
+- [github.com/pre-commit/pre-commit-hooks: v4.4.0 → v4.5.0](https://github.com/pre-commit/pre-commit-hooks/compare/v4.4.0...v4.5.0)",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7152979
+[Pagination] Add pagination logic on scroll #57,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.71482795
+[StoryDetail] Implement comment posting #66,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7142965
+[StoryDetail] Implement comment posting #66,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7142965
+[StoryDetail] Implement comment posting #66,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.7142965
+[StoryDetail] UI touches to comments widget #71,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.71265864
+[Register] Add popup and navigation login #23,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.71027195
+"[Login] Add base response model
+
+Related: #19",Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.70778716
+"[Pipeline] Run workflow when pushed and PR to main
+
+#12",Implement Edit Story Page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/98,0.7070516
+Make flutter-test.sh executable #68,Add create story page,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/56,0.705966
+[Register] Improve register appbar design #39,Improve register appbar design,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/39,0.70278007
+[Pipeline] Use oracle java distribution for build action #12,Add golden tests for login,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/7,0.7016664
+[BottomBar] Add bottom navigation bar and landing logic #28,Add bottom navigation bar and landing logic,https://github.com/SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile/issues/28,0.7012499
