@@ -12,7 +12,8 @@ from visualizer import plot_heatmap
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Software Repository Analyzer")
-    parser.add_argument('repo', help="Name of the GitHub repository", type=str)
+    parser.add_argument('--repo', help="Name of the GitHub repository",
+                        default="SWE574-Fall2023-Group1/SWE574-Fall2023-G1-mobile", type=str)
     parser.add_argument('--token', help="Github API Token", default=os.getenv("GITHUB_TOKEN"), type=str, required=False)
     parser.add_argument('--min_similarity_threshold', help="Minimum similarity threshold for Issue-Commit matching",
                         default=0.7, type=float, required=False)
