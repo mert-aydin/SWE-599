@@ -12,15 +12,16 @@ from visualizer import plot_heatmap
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Software Repository Analyzer")
-    parser.add_argument('repo', help="Name of the GitHub repository")
-    parser.add_argument('--token', help="Github API Token")
+    parser.add_argument('repo', help="Name of the GitHub repository", type=str)
+    parser.add_argument('--token', help="Github API Token", default=os.getenv("GITHUB_TOKEN"), type=str, required=False)
+    parser.add_argument('--min_similarity_threshold', help="Minimum similarity threshold for Issue-Commit matching",
+                        default=0.7, type=float, required=False)
     args = parser.parse_args()
 
     # Initialize modules
-    token = os.getenv("GITHUB_TOKEN") if os.getenv("GITHUB_TOKEN") is not None else args.token
-    data_collector = DataCollector(token, args.repo)
-    # bert_processor = BERTProcessor(model_name='microsoft/codebert-base')
+    data_collector = DataCollector(args.token, args.repo)
     bert_processor = BERTProcessor()
+    # bert_processor = BERTProcessor(model_name='microsoft/codebert-base')
 
     # 1. Collect data
     commits = data_collector.get_commits()
@@ -38,28 +39,22 @@ def main():
     # 4. Generate visualizations
     plot_heatmap(similarity_matrix, "Commit-Issue Similarity", "Issues", "Commits")
 
-    """
-    # BertScore
-    import numpy as np
-
-    # Initialize matrix to store scores
-    bert_scores = bert_processor.compute_pairwise_bertscore(preprocessed_commits['message'],
-                                                            preprocessed_issues['title_body'])
-
-    print(bert_scores)
-    """
-
+    # Define the minimum similarity score threshold
     commit_to_issue_matches = []
     for commit_index, scores in enumerate(similarity_matrix):
         highest_similarity_index = scores.argmax()
         highest_similarity_score = scores[highest_similarity_index]
-        commit_text = preprocessed_commits['message'][commit_index]
-        issue_text = preprocessed_issues['title'][highest_similarity_index]
-        commit_to_issue_matches.append({
-            'Commit': commit_text,
-            'Matched Issue': issue_text,
-            'Similarity Score': highest_similarity_score
-        })
+
+        if highest_similarity_score >= args.min_similarity_threshold:
+            commit_text = preprocessed_commits['message'][commit_index]
+            issue_text = preprocessed_issues['title'][highest_similarity_index]
+            issue_link = preprocessed_issues['url'][highest_similarity_index]
+            commit_to_issue_matches.append({
+                'Commit': commit_text,
+                'Matched Issue': issue_text,
+                'Issue Link': issue_link,
+                'Similarity Score': highest_similarity_score,
+            })
 
     pd.set_option('display.max_colwidth', None)
     matches_df = pd.DataFrame(commit_to_issue_matches)
@@ -72,18 +67,6 @@ def main():
 
     matches_df.to_csv('matches.csv', index=False)
     print(matches_df)
-
-    return
-
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-
-    # Plotting similarity scores of matched issues for the first few commits for visualization
-    plt.figure(figsize=(10, 6))
-    sns.barplot(data=matches_df.head(10), x='Similarity Score', y='Commit')
-    plt.title('Top Commit-Issue Matches')
-    plt.show()
-
     print("Analysis completed.")
 
 
